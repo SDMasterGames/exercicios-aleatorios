@@ -62,6 +62,29 @@ class ServiceHoteis {
     });
     return this.HoteisBaratos[0];
   };
+
+  getListHoteisBaratos = () => {
+    return this.HoteisBaratos;
+  };
+  getHotelMaisBaratoEstrelas = () => {
+    const diasDeSemana = this.dias.filter((dia) => dia < 6).length;
+    const finalDeSemana = this.dias.filter((dia) => dia > 5).length;
+    this.HoteisBaratos = this.HoteisDisponiveis.map((hotel) => {
+      hotel.totalAPagar(this.preferencia, diasDeSemana, finalDeSemana);
+      return hotel;
+    });
+
+    this.HoteisBaratos.sort(function (a, b) {
+      if (a.total_a_pagar < b.total_a_pagar) {
+        return -1;
+      } else {
+        return true;
+      }
+    });
+    return this.HoteisBaratos.find(
+      (hotel) => hotel.classificacaoHotel == this.estrelas
+    );
+  };
 }
 
 module.exports = {
