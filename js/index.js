@@ -41,10 +41,10 @@ class ServiceHoteis {
     this.HoteisBaratos = [];
   }
 
-  getHoteisDisponiveis() {
+  getHoteisDisponiveis = () => {
     return this.HoteisDisponiveis;
-  }
-  HotelMaisBarato() {
+  };
+  getHotelMaisBarato = () => {
     const diasDeSemana = this.dias.filter((dia) => dia < 6).length;
     const finalDeSemana = this.dias.filter((dia) => dia > 5).length;
 
@@ -61,7 +61,7 @@ class ServiceHoteis {
       }
     });
     return this.HoteisBaratos[0];
-  }
+  };
 }
 
 module.exports = {

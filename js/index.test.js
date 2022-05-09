@@ -8,7 +8,7 @@ const hotelaria = [
 const cliente = {
   preferencia: "Reward",
   dias: [4, 5, 7],
-  estrelas: 4,
+  estrelas: 3,
 };
 const suit = new ServiceHoteis(
   cliente.dias,
@@ -17,9 +17,15 @@ const suit = new ServiceHoteis(
   cliente.estrelas
 );
 describe("Serviço de Hoteis", () => {
-  const hotelMaisBarato = suit.HotelMaisBarato();
+  const HotelMaisBarato = suit.getHotelMaisBarato();
+  const HoteisDisponiveis = suit.getHoteisDisponiveis();
+
+  it("Caso o Hotel tenha a mesma estrela que o cliente pediu", () => {
+    expect(HotelMaisBarato).toHaveProperty("classificacaoHotel", 5);
+  });
+
   it("Caso as estrelas do hotel seja diferente da pedida", () => {
-    expect(hotelMaisBarato).not.toHaveProperty(
+    expect(HotelMaisBarato).not.toHaveProperty(
       "classificacaoHotel",
       cliente.estrelas
     );
@@ -28,6 +34,6 @@ describe("Serviço de Hoteis", () => {
   it("Caso o Hotel retornado seja diferente dos Disponiveis", () => {
     const hotel = new Hotel("Saudades", 3, [110, 80], [80, 90]);
 
-    expect(hotelaria).not.toContain(hotel);
+    expect(HoteisDisponiveis).not.toContain(hotel);
   });
 });
