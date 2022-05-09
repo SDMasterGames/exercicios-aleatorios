@@ -1,0 +1,15 @@
+{
+  "name": "lixeira",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SDMasterGames/exercicios-aleatorios.git",
+  "author": "SDMasterGames <sdmastergames@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^28.1.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "start":"node ."
+  }
+}
