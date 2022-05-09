@@ -1,3 +1,3 @@
-## exercicios que faço do Feky e do Dinho
+## exercicios que faço do Feky e do Dinho e de outras pessoas
 
 '-'
